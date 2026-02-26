@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curtis Tech — Micro SaaS Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --surface-elevated: #1f1f1f;
+      --border: #2a2a2a;
+      --text: #f5f5f5;
+      --text-muted: #888;
+      --accent: #00d4aa;
+      --accent-hover: #00f5c4;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .tagline {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+
+    .about {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .about p {
+      color: var(--text-muted);
+      max-width: 600px;
+    }
+
+    .projects {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .project-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .project-link:hover {
+      color: var(--accent-hover);
+    }
+
+    .coming-soon {
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .coming-soon span {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .contact {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .contact p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .email {
+      display: inline-block;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .email:hover {
+      color: var(--accent-hover);
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .motto {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 2rem;
+      padding: 1rem;
+      background: var(--surface);
+      border-radius: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 2rem 1rem;
+      }
+      
+      .logo {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">Curtis<span>Tech</span></div>
+      <p class="tagline">Building useful micro-SaaS tools for small businesses</p>
+    </header>
+
+    <section>
+      <h2>About</h2>
+      <div class="about">
+        <p>Curtis Tech builds simple, focused tools that solve real problems. We believe powerful software doesn't need to be complicated. Our micro-SaaS products are designed to be simple, affordable, and actually useful.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Products</h2>
+      <div class="projects">
+        <div class="project-card">
+          <h3>⚡ Quote Genius</h3>
+          <p>Instant quote generator for service businesses. Create professional quotes in seconds, no signup required. Supports Venmo, CashApp, PayPal, and Stripe payments.</p>
+          <a href="https://tcby04.github.io/quote-genius/" target="_blank" rel="noopener" class="project-link">
+            Visit →
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>🍕 FoodTruckIQ</h3>
+          <p>Location finder for food truck owners in Northwest Arkansas. Discover the best spots to set up, track competition, and find food truck courts.</p>
+          <a href="https://tcby04.github.io/foodtruckiq/" target="_blank" rel="noopener" class="project-link">
+            Visit →
+          </a>
+        </div>
+
+        <div class="coming-soon">
+          <span>🚧 More micro businesses coming soon...</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <div class="contact">
+        <p>Have an idea for a micro business? Want to partner? Just want to say hi?</p>
+        <a href="mailto:curtis.tech.az@gmail.com" class="email">curtis.tech.az@gmail.com</a>
+      </div>
+    </section>
+
+    <div class="motto">
+      Small tools. Big impact.
+    </div>
+
+    <footer>
+      © 2026 Curtis Tech. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
