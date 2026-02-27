@@ -3,19 +3,36 @@
 ## Overview
 Personal company website for Curtis Tech - a micro-SaaS portfolio company.
 
-## Purpose
-- Showcase the micro businesses being built
-- Professional landing page for the company
-- Contact information for partnerships/ideas
+## Contact
+- **Email:** curtis.tech.az@gmail.com
+- **Website:** https://tcby04.github.io/curtis-tech/
 
 ## Products
-1. Quote Genius - Instant quote generator
-2. FoodTruckIQ - Food truck location finder
 
-## Tech
-- Single HTML file
+### Quote Genius
+- **URL:** https://tcby04.github.io/quote-genius/
+- **GitHub:** https://github.com/Tcby04/quote-genius
+- **Description:** Instant quote generator for service businesses
+- **Pricing:** Free (5 items) / $5/month Pro
+- **Live Payment Link:** https://buy.stripe.com/28E9AT7qB7RT4UX8mc8EM01
+
+### FoodTruckIQ
+- **URL:** https://tcby04.github.io/foodtruckiq/
+- **GitHub:** https://github.com/Tcby04/foodtruckiq
+- **Description:** Location finder for food truck owners in NWA
+
+## Backend
+- **Server:** https://quote-genius-server.onrender.com
+- **GitHub:** https://github.com/Tcby04/quote-genius-server
+
+## Tech Stack
+- Single HTML files (no framework)
 - Dark theme, professional aesthetic
-- GitHub Pages hosting
+- GitHub Pages for hosting
+- Render.com for backend API
+- Stripe for payments
 
-## URL
-https://tcby04.github.io/curtis-tech/
+## Important Notes
+- Stripe API keys stored in memory file (not in git)
+- Render server uses in-memory storage (codes reset on restart)
+- Consider adding email delivery for unlock codes in future
