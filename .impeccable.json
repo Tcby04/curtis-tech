@@ -1,0 +1,26 @@
+{
+  "name": "Curtis Tech",
+  "type": "marketing website",
+  "audience": "small business owners, developers",
+  "personality": "practical, no-nonsense, efficient",
+  "style": "clean dark theme with teal accent",
+  "brandColor": {
+    "hue": 165,
+    "chroma": 0.15
+  },
+  "fonts": {
+    "heading": "Space Mono",
+    "body": "DM Sans"
+  },
+  "do": [
+    "Use OKLCH color space",
+    "Tinted neutrals (subtle teal tint)",
+    "Generous whitespace",
+    "Card-based layout for products"
+  ],
+  "dont": [
+    "Use pure gray (#888 → tint it)",
+    "Use pure black (#0a0a0a → tint it)",
+    "Bounce/elastic easing"
+  ]
+}
