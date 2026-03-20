@@ -3,352 +3,322 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Idea Roulette — Trent Edition</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <title>Curtis Tech — Micro SaaS Portfolio</title>
+  <meta name="google-adsense-account" content="ca-pub-5104410176069220">
+  <meta name="google-site-verification" content="W0E8RLTD75QSMHPPtQhTdMhgRKAxv3dftBPnNa2ULLM">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5104410176069220"
+     crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #0a0a0f;
-      --card: #12121a;
-      --accent: #7c3aed;
-      --accent2: #ec4899;
-      --text: #f1f5f9;
-      --muted: #64748b;
-      --spin: 0deg;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      /* OKLCH tinted neutrals with subtle teal brand tint */
+      --bg: oklch(12% 0.015 165);
+      --surface: oklch(16% 0.015 165);
+      --surface-elevated: oklch(22% 0.015 165);
+      --border: oklch(28% 0.015 165);
+      --text: oklch(96% 0.01 165);
+      --text-muted: oklch(65% 0.015 165);
+      --accent: oklch(72% 0.15 165);
+      --accent-hover: oklch(82% 0.12 165);
+    }
 
     body {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      overflow: hidden;
+      line-height: 1.6;
     }
 
-    .bg-glow {
-      position: fixed;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      filter: blur(150px);
-      opacity: 0.15;
-      pointer-events: none;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
     }
-    .bg-glow.purple { background: var(--accent); }
-    .bg-glow.pink { background: var(--accent2); transform: translate(-30%, -30%) scale(0.8); }
 
-    h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2rem, 6vw, 4rem);
-      font-weight: 800;
+    header {
       text-align: center;
-      margin-bottom: 0.25rem;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      margin-bottom: 4rem;
     }
 
-    .subtitle {
-      color: var(--muted);
-      font-size: 1rem;
-      margin-bottom: 3rem;
-      text-align: center;
-    }
-
-    .wheel-container {
-      position: relative;
-      width: min(85vw, 420px);
-      aspect-ratio: 1;
-      margin-bottom: 2.5rem;
-    }
-
-    .wheel {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: conic-gradient(
-        from var(--spin),
-        #7c3aed 0deg 51deg,
-        #ec4899 51deg 102deg,
-        #06b6d4 102deg 153deg,
-        #10b981 153deg 204deg,
-        #f59e0b 204deg 255deg,
-        #ef4444 255deg 306deg,
-        #8b5cf6 306deg 360deg
-      );
-      box-shadow: 
-        0 0 0 8px rgba(255,255,255,0.05),
-        0 0 60px rgba(124, 58, 237, 0.3),
-        inset 0 0 60px rgba(0,0,0,0.3);
-      transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
-    }
-
-    .wheel.spinning {
-      transform: rotate(calc(var(--spin) + 1800deg)) !important;
-    }
-
-    .wheel-label {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 55%;
-      height: 55%;
-      border-radius: 50%;
-      background: var(--card);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 1.5rem;
-      box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
-    }
-
-    .wheel-label .label-title {
-      font-size: 0.7rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 0.25rem;
-    }
-
-    .wheel-label .label-text {
-      font-family: 'Syne', sans-serif;
+    .logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 2.5rem;
       font-weight: 700;
-      font-size: clamp(0.9rem, 3vw, 1.1rem);
-      line-height: 1.3;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .tagline {
+      color: var(--text-muted);
+      font-size: 1.125rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
       color: var(--text);
     }
 
-    .pointer {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 24px;
-      height: 24px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      clip-path: polygon(50% 100%, 0 0, 100% 0);
-      z-index: 10;
-    }
-
-    .spin-btn {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      padding: 1rem 3rem;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: white;
-      border: none;
-      border-radius: 100px;
-      cursor: pointer;
-      box-shadow: 0 4px 30px rgba(124, 58, 237, 0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .spin-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 40px rgba(124, 58, 237, 0.6);
-    }
-
-    .spin-btn:active { transform: scale(0.97); }
-    .spin-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-
-    .result-card {
-      margin-top: 2rem;
-      background: var(--card);
-      border-radius: 20px;
+    .about {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
       padding: 2rem;
-      max-width: 500px;
-      width: 100%;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(20px) scale(0.95);
-      transition: opacity 0.5s, transform 0.5s;
-      border: 1px solid rgba(255,255,255,0.05);
     }
 
-    .result-card.show {
-      opacity: 1;
-      transform: translateY(0) scale(1);
+    .about p {
+      color: var(--text-muted);
+      max-width: 600px;
     }
 
-    .result-card h2 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .projects {
+      display: grid;
+      gap: 1.5rem;
     }
 
-    .result-card .idea {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 1.25rem;
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s ease-out, transform 0.2s ease-out;
     }
 
-    .result-card .tags {
-      display: flex;
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .project-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
       gap: 0.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
     }
 
-    .result-card .tag {
-      background: rgba(124, 58, 237, 0.2);
-      color: #a78bfa;
-      padding: 0.3rem 0.8rem;
-      border-radius: 100px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+    .project-link:hover {
+      color: var(--accent-hover);
     }
 
-    .creds {
-      position: fixed;
-      bottom: 1rem;
-      font-size: 0.75rem;
-      color: var(--muted);
+    .coming-soon {
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
     }
-    .creds a { color: var(--muted); }
+
+    .coming-soon span {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .contact {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .contact p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .email {
+      display: inline-block;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .email:hover {
+      color: var(--accent-hover);
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .motto {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 2rem;
+      padding: 1rem;
+      background: var(--surface);
+      border-radius: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 2rem 1rem;
+      }
+      
+      .logo {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="bg-glow purple"></div>
-  <div class="bg-glow pink"></div>
+  <div class="container">
+    <header>
+      <div class="logo">Curtis<span>Tech</span></div>
+      <p class="tagline">Building useful micro-SaaS tools for small businesses</p>
+    </header>
 
-  <h1>Idea Roulette</h1>
-  <p class="subtitle">Trent's billion-dollar idea generator 🎰</p>
-
-  <div class="wheel-container">
-    <div class="pointer"></div>
-    <div class="wheel" id="wheel">
-      <div class="wheel-label">
-        <span class="label-title">Spin to find your</span>
-        <span class="label-text" id="wheelText">—</span>
+    <section>
+      <h2>About</h2>
+      <div class="about">
+        <p>Curtis Tech builds simple, focused tools that solve real problems. We believe powerful software doesn't need to be complicated. Our micro-SaaS products are designed to be simple, affordable, and actually useful.</p>
       </div>
+    </section>
+
+    <section>
+      <h2>Products</h2>
+      <div class="projects">
+        <div class="project-card">
+          <h3>🔐 PasswordTester</h3>
+          <p>Check password strength, entropy, and if it's been exposed in breaches. Shows crack time estimates using real-world attack speeds.</p>
+          <a href="https://tcby04.github.io/password-tester/" target="_blank" rel="noopener" class="project-link">
+            Visit →
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>🔍 BreachRadar</h3>
+          <p>Check if your email has been exposed in data breaches. Free breach checker powered by HaveIBeenPwned. See what data was leaked and when.</p>
+          <a href="https://tcby04.github.io/breach-radar/" target="_blank" rel="noopener" class="project-link">
+            Visit →
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>🧾 InvoiceGenius</h3>
+          <p>Professional invoice generator for service businesses. Create beautiful invoices in seconds, no signup required. Auto-calculates totals with tax support.</p>
+          <a href="https://tcby04.github.io/invoice-genius/" target="_blank" rel="noopener" class="project-link">
+            Visit →
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>🔗 LeadPipe</h3>
+          <p>Simple lead capture form builder. Create shareable forms in seconds, collect responses locally, export to CSV. Perfect for service businesses.</p>
+          <a href="https://tcby04.github.io/lead-pipe/" target="_blank" rel="noopener" class="project-link">
+            Visit →
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>🍽️ MenuMaker</h3>
+          <p>Digital menu builder for restaurants and food trucks. Create beautiful menus with multiple themes, share via link. 6 color themes included.</p>
+          <a href="https://tcby04.github.io/menu-maker/" target="_blank" rel="noopener" class="project-link">
+            Visit →
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>⚡ Quote Genius</h3>
+          <p>Instant quote generator for service businesses. Create professional quotes in seconds, no signup required. Supports Venmo, CashApp, PayPal, and Stripe payments.</p>
+          <a href="https://tcby04.github.io/quote-genius/" target="_blank" rel="noopener" class="project-link">
+            Visit →
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>🍕 FoodTruckIQ</h3>
+          <p>Location finder for food truck owners in Northwest Arkansas. Discover the best spots to set up, track competition, and find food truck courts.</p>
+          <a href="https://tcby04.github.io/foodtruckiq/" target="_blank" rel="noopener" class="project-link">
+            Visit →
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>🗜️ PixelSqueeze</h3>
+          <p>Fast image compressor — 100% in your browser. Compress images for websites, social media, and email. Batch processing, WebP support, and presets.</p>
+          <a href="https://tcby04.github.io/pixel-squeeze/" target="_blank" rel="noopener" class="project-link">
+            Visit →
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>🔗 LinkPage</h3>
+          <p>Clean link-in-bio builder. Like Linktree but simpler and cheaper ($3/mo). Custom themes, unlimited links, analytics, and custom domains.</p>
+          <a href="https://tcby04.github.io/linkpage/" target="_blank" rel="noopener" class="project-link">
+            Visit →
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>👤 Trent's Links</h3>
+          <p>Personal link page of the founder. Built with LinkPage.</p>
+          <a href="https://tcby04.github.io/trent/" target="_blank" rel="noopener" class="project-link">
+            Visit →
+          </a>
+        </div>
+
+        <div class="coming-soon">
+          <span>🚧 More micro businesses coming soon...</span>
+        </div>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <div class="contact">
+        <p>Have an idea for a micro business? Want to partner? Just want to say hi?</p>
+        <a href="mailto:curtis.tech.az@gmail.com" class="email">curtis.tech.az@gmail.com</a>
+      </div>
+    </section>
+
+    <div class="motto">
+      Small tools. Big impact.
     </div>
+
+    <footer>
+      © 2026 Curtis Tech. All rights reserved.
+    </footer>
   </div>
-
-  <button class="spin-btn" id="spinBtn" onclick="spin()">
-    🎲 Spin the Wheel
-  </button>
-
-  <div class="result-card" id="resultCard">
-    <h2 id="ideaTitle">Your Next Move:</h2>
-    <p class="idea" id="ideaText"></p>
-    <div class="tags" id="ideaTags"></div>
-  </div>
-
-  <p class="creds">Built for Trent — ideas built around food trucks, travel, AI & no debt</p>
-
-  <script>
-    const segments = [
-      {
-        label: "Food Truck",
-        title: "Food Truck Analytics",
-        text: "A platform that tracks foot traffic patterns, competitor locations, and event calendars to tell food trucks exactly where to set up each day. Real-time location scoring.",
-        tags: ["NWA", "Data", "SaaS"]
-      },
-      {
-        label: "AI Tool",
-        title: "Micro-SaaS Builder Kit",
-        text: "A boilerplate that lets Trent ship micro-SaaS products in hours, not weeks. Stripe, GitHub Pages, and a template that handles the boring stuff.",
-        tags: ["AI", "No-Code", "Stripe"]
-      },
-      {
-        label: "Travel",
-        title: "Visa Route Planner",
-        text: "An interactive tool for expats that maps out visa pathways, COFA nations, and entry exceptions. Shows which countries let you stay longest without hassle.",
-        tags: ["Travel", "Philippines", "Maps"]
-      },
-      {
-        label: "Crypto",
-        title: "No-GPU Trading Bot",
-        text: "A cloud-based crypto strategy tester and live trader that runs entirely through API calls. Train models on historical data, deploy with one click.",
-        tags: ["Crypto", "API", "Trading"]
-      },
-      {
-        label: "Art",
-        title: "Hidden Art Map",
-        text: "A community-curated map of outdoor murals, sculptures, and installations. QR codes at each location unlock artist stories and AR easter eggs.",
-        tags: ["TeamLab", "Community", "Maps"]
-      },
-      {
-        label: "Pizza",
-        title: "NWA Pizza Co.",
-        text: "A thick-crust pizza food truck targeting the 479 area code. $8-12 pies, event catering, farmers market presence. Supply chain via Sysco.",
-        tags: ["Pizza", "Food Truck", "NWA"]
-      },
-      {
-        label: "OSINT",
-        title: "Breach Watch Pro",
-        text: "Monitor your clients' emails for breaches and alert them automatically. White-label dashboard for MSPs. Tiered pricing: $5-50/mo per client.",
-        tags: ["Security", "OSINT", "B2B"]
-      }
-    ];
-
-    const wheel = document.getElementById('wheel');
-    const wheelText = document.getElementById('wheelText');
-    const spinBtn = document.getElementById('spinBtn');
-    const resultCard = document.getElementById('resultCard');
-    const ideaTitle = document.getElementById('ideaTitle');
-    const ideaText = document.getElementById('ideaText');
-    const ideaTags = document.getElementById('ideaTags');
-
-    let spinning = false;
-
-    function spin() {
-      if (spinning) return;
-      spinning = true;
-      spinBtn.disabled = true;
-      resultCard.classList.remove('show');
-
-      const segmentAngle = 360 / segments.length;
-      const randomIndex = Math.floor(Math.random() * segments.length);
-      const targetAngle = 360 - (randomIndex * segmentAngle) - (segmentAngle / 2);
-      
-      // Random extra spins
-      const extraSpins = 5 + Math.floor(Math.random() * 3);
-      const totalRotation = extraSpins * 360 + targetAngle;
-
-      wheel.style.setProperty('--spin', totalRotation + 'deg');
-      wheel.classList.add('spinning');
-
-      setTimeout(() => {
-        wheel.classList.remove('spinning');
-        wheel.style.setProperty('--spin', '0deg');
-        
-        const seg = segments[randomIndex];
-        wheelText.textContent = seg.label;
-        
-        ideaTitle.textContent = seg.title;
-        ideaText.textContent = seg.text;
-        ideaTags.innerHTML = seg.tags.map(t => `<span class="tag">${t}</span>`).join('');
-        
-        setTimeout(() => {
-          resultCard.classList.add('show');
-          spinning = false;
-          spinBtn.disabled = false;
-        }, 300);
-      }, 4200);
-    }
-  </script>
 </body>
 </html>
